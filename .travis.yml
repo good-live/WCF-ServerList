@@ -14,7 +14,10 @@ script:
   - echo "\nBuilding templates.tar\n----------------------" && cd templates && tar cvf ../templates.tar * && cd ..
   - echo "\nBuilding $PACKAGE_NAME archive"
   - tar -czvf $PACKAGE_NAME.tar.gz * --exclude=acpTemplates --exclude=files --exclude=templates --exclude=nbproject --exclude=README* --exclude=.gitignore --exclude=*.tar.gz --exclude=LICENSE* --exclude=c --exclude=z --exclude=v
-  
+ 
+after_success:
+  - ftp -u ftp://$FTPUSER:$FTPPASS@$HOME/$TRAVIS_BUILD_NUMBER/$PACKAGE_NAME.tar.gz $PACKAGE_NAME.tar.gz
+ 
 deploy:
   provider: releases
   api_key: "TOKEN"
