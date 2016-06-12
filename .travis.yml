@@ -4,19 +4,16 @@ env:
     - PACKAGE_NAME=eu.painlessgaming.wcf.serverlist
 php:
   - 5.6
-  - 5.5
-  - 5.4
-  - 5.3
 before_install:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   
 script:
-  - echo "\nBuilding acptemplates.tar\n-------------------------" && cd acptemplates && tar cvf ../acptemplates.tar * && cd ..
+  - echo "\nBuilding acptemplates.tar\n-------------------------" && cd acptemplates && tar cvf ../acpTemplates.tar * && cd ..
   - echo "\nBuilding files.tar\n------------------" && cd files && tar cvf ../files.tar --exclude .DS_Store * && cd ..
   - echo "\nBuilding templates.tar\n----------------------" && cd templates && tar cvf ../templates.tar * && cd ..
   - echo "\nBuilding $PACKAGE_NAME archive" \
-  - tar --exclude=acptemplates --exclude=files --exclude=templates --exclude=nbproject --exclude=README* --exclude=.gitignore --exclude=*.tar.gz --exclude=LICENSE* --exclude=c --exclude=z --exclude=v -czvf ../$PACKAGE_NAME.tar.gz
+  - tar --exclude=acpTemplates --exclude=files --exclude=templates --exclude=nbproject --exclude=README* --exclude=.gitignore --exclude=*.tar.gz --exclude=LICENSE* --exclude=c --exclude=z --exclude=v -czvf $PACKAGE_NAME.tar.gz
   
 deploy:
   provider: releases
