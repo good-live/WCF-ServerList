@@ -1,13 +1,32 @@
 language: php
+env: 
+  global:
+    - PACKAGE_NAME=eu.painlessgaming.wcf.serverlist
 php:
-  - 7.0
   - 5.6
   - 5.5
+  - 5.4
+  - 5.3
 before_install:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
+  
 before_script:
-  -git clone --branch=master --depth=1 --quiet git://github.com/WoltLab/WCF.git WCF
+  - chmod +rx build-env/addons/sourcemod/scripting/spcomp
+  - chmod +rx build-env/addons/sourcemod/scripting/compile.sh
+  - cd build-env/addons/sourcemod/scripting/
+  
 script:
-  -find files -type f -name '*.php' |xargs -I file php -l file
-  -phpcs -p --extensions=php --standard="`pwd`/WCF/CodeSniff/WCF" files
+  - echo "\nBuilding acptemplates.tar\n-------------------------" && cd acptemplates && tar cvf ../acptemplates.tar * && cd ..
+  - echo "\nBuilding files.tar\n------------------" && cd files && tar cvf ../files.tar --exclude .DS_Store * && cd ..
+  - echo "\nBuilding templates.tar\n----------------------" && cd templates && tar cvf ../templates.tar * && cd ..
+  - echo "\nBuilding $PACKAGE_NAME archive" \
+  - tar --exclude=acptemplates --exclude=files --exclude=templates --exclude=nbproject --exclude=README* --exclude=.gitignore --exclude=*.tar.gz --exclude=LICENSE* --exclude=c --exclude=z --exclude=v -czvf ../$PACKAGE_NAME.tar.gz
+  
+deploy:
+  provider: releases
+  api_key: "TOKEN"
+  file: "$PACKAGE_NAME.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true
