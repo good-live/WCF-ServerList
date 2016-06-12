@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+    <category name="wcf.acp.serverlist">
+        <item name="wcf.acp.serverlist.list"><![CDATA[Server auflisten]]></item>
+        <item name="wcf.acp.serverlist.add"><![CDATA[Server hinzufügen]]></item>
+        <item name="wcf.acp.serverlist.edit"><![CDATA[Server bearbeiten]]></item>
+        <item name="wcf.acp.serverlist.host"><![CDATA[IP Adresse]]></item>
+        <item name="wcf.acp.serverlist.port"><![CDATA[Port]]></item>
+        <item name="wcf.acp.serverlist.name"><![CDATA[Name]]></item>
+        <item name="wcf.acp.serverlist.queryport"><![CDATA[Query Port]]></item>
+        <item name="wcf.acp.serverlist.game"><![CDATA[Game]]></item>
+        <item name="wcf.acp.serverlist.delete.sure"><![CDATA[Wollen Sie WIRKLICH diesen Server löschen? Dieser Vorgang kann nicht rückgängig gemacht werden!]]></item>
+    </category>
+    <category name="wcf.acp">
+        <item name="wcf.acp.option.category.serverlist"><![CDATA[Server Liste]]></item>
+        <item name="wcf.acp.option.category.serverlist.general"><![CDATA[General]]></item>
+        <item name="wcf.acp.option.ts3_refreshrate"><![CDATA[Aktualisierungsrate in Sekunden]]></item>
+        <item name="wcf.acp.menu.link.community.serverlist"><![CDATA[Server]]></item>
+        <item name="wcf.acp.menu.link.community.serverlist.list"><![CDATA[Server auflisten]]></item>
+        <item name="wcf.acp.menu.link.community.serverlist.add"><![CDATA[Server hinzufügen]]></item>
+        <item name="wcf.acp.group.option.category.user.board.serverlist"><![CDATA[Server Liste]]></item>
+        <item name="wcf.acp.group.option.category.admin.community.serverlist"><![CDATA[Server Liste]]></item>
+        <item name="wcf.acp.group.option.user.board.serverlist.canView"><![CDATA[Kann Server Seite sehen]]></item>
+        <item name="wcf.acp.group.option.admin.community.serverlist.canView"><![CDATA[Kann Server sehen]]></item>
+        <item name="wcf.acp.group.option.admin.community.serverlist.canAdd"><![CDATA[Kann Server hinzufügen]]></item>
+        <item name="wcf.acp.group.option.admin.community.serverlist.canEdit"><![CDATA[Kann Server bearbeiten]]></item>
+        <item name="wcf.acp.group.option.admin.community.serverlist.canDelete"><![CDATA[Kann Server löschen]]></item>
+    </category>
+    <category name="wcf.page">
+        <item name="wcf.page.serverlist"><![CDATA[Serverliste]]></item>
+        <item name="wcf.page.serverlist.title"><![CDATA[Serverliste]]></item>
+    </category>
+</language>

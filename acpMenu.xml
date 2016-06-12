@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
+    <import>
+        <acpmenuitem name="wcf.acp.menu.link.community.serverlist">
+            <parent>wcf.acp.menu.link.community</parent>
+            <permissions>admin.community.serverlist.canView</permissions>
+        </acpmenuitem>
+        <acpmenuitem name="wcf.acp.menu.link.community.serverlist.list">
+            <controller><![CDATA[wcf\lib\acp\page\ServerListServerList]]></controller>
+            <parent>wcf.acp.menu.link.community.serverlist</parent>
+            <permissions>admin.community.serverlist.canView</permissions>
+        </acpmenuitem>
+        <acpmenuitem name="wcf.acp.menu.link.community.serverlist.add">
+            <controller><![CDATA[wcf\lib\acp\form\ServerListServerAdd]]></controller>
+            <parent>wcf.acp.menu.link.community.serverlist</parent>
+            <permissions>admin.community.serverlist.canAdd</permissions>
+        </acpmenuitem>
+    </import>
+</data>

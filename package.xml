@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="eu.painlessgaming.wcf.serverlist" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+    <packageinformation>
+        <packagename><![CDATA[Server List]]></packagename>
+        <packagename languagecode="de"><![CDATA[Server Liste]]></packagename>
+        <packagedescription><![CDATA[This plugin adds the possibility to list several servers on a page.]]></packagedescription>
+        <packagedescription languagecode="de"><![CDATA[Dieses Plugin fügt ein Server Liste hinzu]]></packagedescription>
+        <version>0.0.1</version>
+        <date>2016-06-11</date>
+    </packageinformation>
+
+
+    <authorinformation>
+        <author>good_live</author>
+        <authorurl>https://painlessgaming.eu</authorurl>
+    </authorinformation>
+
+    <instructions type="install">
+        <instruction type="acpTemplate">acpTemplates.tar</instruction>
+        <instruction type="file">files.tar</instruction>
+        <instruction type="template">templates.tar</instruction>
+        <instruction type="sql">install.sql</instruction>
+        <instruction type="pageMenu">pagemenu.xml</instruction>
+        <instruction type="acpMenu">acpMenu.xml</instruction>
+        <instruction type="userGroupOption">userGroupOption.xml</instruction>
+        <instruction type="language">language/*.xml</instruction>
+        <instruction type="option">options.xml</instruction>
+    </instructions>
+</package>
