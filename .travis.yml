@@ -20,7 +20,8 @@ after_success:
  
 deploy:
   provider: releases
-  api_key: "TOKEN"
+  api_key:
+    secure: Ka2WG4MmJULgS3M9myjBOyfrIYG8+irhlsGJ0oUIe8b8OBruzsYOltIkC+g8j/m7gCr6E5XfxQOm/yd2ygOJIE0QXf9Wo9dU5dk3LWoCsHnNo2D5DFn7rGWR6NzNclEAcIAiZaS8xE8UE5MVjeOU0SyhQorTY+gH0VNZugwTT5jDEVc63Rj/CqIelyYt/J3$
   file: "$PACKAGE_NAME.tar.gz"
   skip_cleanup: true
   on:
