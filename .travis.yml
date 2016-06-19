@@ -1,28 +1,30 @@
+# Required to run your project under the correct environment.
 language: php
-env: 
-  global:
-    - PACKAGE_NAME=eu.painlessgaming.wcf.serverlist
+
+# Versions of PHP you want your project run with.
 php:
+  - 5.4
+  - 5.5
   - 5.6
-before_install:
-  - pyrus install pear/PHP_CodeSniffer
-  - phpenv rehash
-  
-script:
-  - echo "\nBuilding acpTemplates.tar\n-------------------------" && cd acpTemplates && tar cvf ../acpTemplates.tar * && cd ..
-  - echo "\nBuilding files.tar\n------------------" && cd files && tar cvf ../files.tar --exclude .DS_Store * && cd ..
-  - echo "\nBuilding templates.tar\n----------------------" && cd templates && tar cvf ../templates.tar * && cd ..
-  - echo "\nBuilding $PACKAGE_NAME archive"
-  - tar -czvf $PACKAGE_NAME.tar.gz * --exclude=acpTemplates --exclude=files --exclude=templates --exclude=nbproject --exclude=README* --exclude=.gitignore --exclude=*.tar.gz --exclude=LICENSE* --exclude=c --exclude=z --exclude=v
- 
-after_success:
-  - ftp -u ftp://$FTPUSER:$FTPPASS@$HOME/$TRAVIS_BUILD_NUMBER/$PACKAGE_NAME.tar.gz $PACKAGE_NAME.tar.gz
- 
-deploy:
-  provider: releases
-  api_key:
-    secure: Ka2WG4MmJULgS3M9myjBOyfrIYG8+irhlsGJ0oUIe8b8OBruzsYOltIkC+g8j/m7gCr6E5XfxQOm/yd2ygOJIE0QXf9Wo9dU5dk3LWoCsHnNo2D5DFn7rGWR6NzNclEAcIAiZaS8xE8UE5MVjeOU0SyhQorTY+gH0VNZugwTT5jDEVc63Rj/CqIelyYt/J3$
-  file: "$PACKAGE_NAME.tar.gz"
-  skip_cleanup: true
-  on:
-    tags: true
+  - hhvm
+
+# Commands to be run before your environment runs.
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+# Commands you want to run that will verify your build.
+script: phpunit
+
+# allow_failures: Allow this build to fail under the specified environments.
+# fast_finish: If your build fails do not continue trying to build, just stop.
+matrix:
+  allow_failures:
+    - php: 5.6
+    - php: hhvm
+  fast_finish: true
+
+# Customize when the notification emails are sent.
+notifications:
+    on_success: never
+    on_failure: always
