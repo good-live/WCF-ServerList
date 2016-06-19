@@ -6,6 +6,12 @@ php:
 before_install:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
+before_script:
+  - git clone --branch=master --depth=1 --quiet git://github.com/WoltLab/WCF.git WCF
+  - rm WCF/CodeSniff/WCF/Sniffs/Namespaces/ClassMustBeImportedSniff.php
+  - rm WCF/CodeSniff/WCF/Sniffs/Namespaces/UseDeclarationSniff.php
+  - sed -i 's/<rule ref="WCF.Namespaces.ClassMustBeImported" \/>//' WCF/CodeSniff/WCF/ruleset.xml
+  - sed -i 's/<rule ref="WCF.Namespaces.UseDeclaration" \/>//' WCF/CodeSniff/WCF/ruleset.xml
 script:
   - find . -type f -name '*.php' -print0 |xargs -0 -I file -P 4 php -l file > /dev/null
   - phpcs -p --extensions=php --standard="`pwd`/CodeSniff/WCF" .
