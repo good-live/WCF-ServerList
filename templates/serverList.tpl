@@ -46,13 +46,13 @@
                         {else}
                             <tr style="border-color:red;">
                                 <td style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);"><span style="display: inline;padding: .2em .6em .3em;font-size: 75%;font-weight: 700;line-height: 1;color: #fff;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;background-color: red;">Offline</span></td>
-                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3); color:white"><img src='{$__wcf->getPath()}images/serverlist/icons/de.png'/>/></td>
+                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3); color:white"><img src='{$__wcf->getPath()}images/serverlist/icons/de.png'/></td>
                                 <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3); color:white"><img src='{$__wcf->getPath()}images/serverlist/servers/{$server['gq_type']}.png'/></td>
                                 <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3); color:white">{$server['oname']}</td>
                                 <td id="map" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;">{$server['gq_mapname']}</td>
                                 <td id="players" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;">{$server['gq_numplayers']}/{$server['gq_maxplayers']}</td>
                                 <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}">{$name}</a></td>
-                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}"><img src='{$__wcf->getPath()}images/serverlist/icons/steam.png'/>'/></a></td>
+                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}"><img src='{$__wcf->getPath()}images/serverlist/icons/steam.png'/></a></td>
                             </tr>
                         {/if}
                     {/foreach}
