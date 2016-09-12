@@ -77,9 +77,7 @@ class Buffer
      * @param string $data
      * @param string $number_type
      */
-    public function __construct($data, $number_type = self::NUMBER_TYPE_LITTLEENDIAN)
-    {
-
+    public function __construct($data, $number_type = self::NUMBER_TYPE_LITTLEENDIAN) {
         $this->number_type = $number_type;
         $this->data = $data;
         $this->length = strlen($data);
@@ -90,9 +88,7 @@ class Buffer
      *
      * @return  string    The data
      */
-    public function getData()
-    {
-
+    public function getData() {
         return $this->data;
     }
 
@@ -101,9 +97,7 @@ class Buffer
      *
      * @return  string    The data currently in the buffer
      */
-    public function getBuffer()
-    {
-
+    public function getBuffer() {
         return substr($this->data, $this->index);
     }
 
@@ -112,9 +106,7 @@ class Buffer
      *
      * @return  int  Length of the buffer
      */
-    public function getLength()
-    {
-
+    public function getLength() {
         return max($this->length - $this->index, 0);
     }
 
@@ -126,8 +118,7 @@ class Buffer
      * @return string
      * @throws \GameQ\Exception\Protocol
      */
-    public function read($length = 1)
-    {
+    public function read($length = 1) {
 
         if (($length + $this->index) > $this->length) {
             throw new Exception("Unable to read length={$length} from buffer.  Bad protocol format or return?");
@@ -147,8 +138,7 @@ class Buffer
      *
      * @return string
      */
-    public function readLast()
-    {
+    public function readLast() {
 
         $len = strlen($this->data);
         $string = $this->data{strlen($this->data) - 1};
@@ -165,8 +155,7 @@ class Buffer
      *
      * @return string
      */
-    public function lookAhead($length = 1)
-    {
+    public function lookAhead($length = 1) {
 
         return substr($this->data, $this->index, $length);
     }
@@ -176,8 +165,7 @@ class Buffer
      *
      * @param int $length
      */
-    public function skip($length = 1)
-    {
+    public function skip($length = 1) {
 
         $this->index += $length;
     }
@@ -188,8 +176,7 @@ class Buffer
      *
      * @param $index
      */
-    public function jumpto($index)
-    {
+    public function jumpto($index) {
 
         $this->index = min($index, $this->length - 1);
     }
@@ -199,8 +186,7 @@ class Buffer
      *
      * @return int
      */
-    public function getPosition()
-    {
+    public function getPosition() {
 
         return $this->index;
     }
@@ -215,8 +201,7 @@ class Buffer
      * @return string
      * @throws \GameQ\Exception\Protocol
      */
-    public function readString($delim = "\x00")
-    {
+    public function readString($delim = "\x00") {
 
         // Get position of delimiter
         $len = strpos($this->data, $delim, min($this->index, $this->length));
@@ -242,8 +227,7 @@ class Buffer
      * @return string
      * @throws \GameQ\Exception\Protocol
      */
-    public function readPascalString($offset = 0, $read_offset = false)
-    {
+    public function readPascalString($offset = 0, $read_offset = false) {
 
         // Get the proper offset
         $len = $this->readInt8();
@@ -270,8 +254,7 @@ class Buffer
      *
      * @todo: Check to see if this is even used anymore
      */
-    public function readStringMulti($delims, &$delimfound = null)
-    {
+    public function readStringMulti($delims, &$delimfound = null) {
 
         // Get position of delimiters
         $pos = [];
@@ -300,8 +283,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt8()
-    {
+    public function readInt8() {
 
         $int = unpack('Cint', $this->read(1));
 
@@ -314,8 +296,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt8Signed()
-    {
+    public function readInt8Signed() {
 
         $int = unpack('cint', $this->read(1));
 
@@ -328,8 +309,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt16()
-    {
+    public function readInt16() {
 
         // Change the integer type we are looking up
         switch ($this->number_type) {
@@ -356,8 +336,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt16Signed()
-    {
+    public function readInt16Signed() {
 
         // Read the data into a string
         $string = $this->read(2);
@@ -380,8 +359,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt32()
-    {
+    public function readInt32() {
 
         // Change the integer type we are looking up
         switch ($this->number_type) {
@@ -409,8 +387,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt32Signed()
-    {
+    public function readInt32Signed() {
 
         // Read the data into a string
         $string = $this->read(4);
@@ -433,8 +410,7 @@ class Buffer
      * @return int
      * @throws \GameQ\Exception\Protocol
      */
-    public function readInt64()
-    {
+    public function readInt64() {
 
         // We have the pack 64-bit codes available. See: http://php.net/manual/en/function.pack.php
         if (version_compare(PHP_VERSION, '5.6.3') >= 0 && PHP_INT_SIZE == 8) {
@@ -481,8 +457,7 @@ class Buffer
      * @return float
      * @throws \GameQ\Exception\Protocol
      */
-    public function readFloat32()
-    {
+    public function readFloat32() {
 
         // Read the data into a string
         $string = $this->read(4);
