@@ -16,6 +16,13 @@
 <div class="container marginTop">
     <ul class="containerList serverlist">
         <div>
+            <h3 class="block-title" style="background-color:rgba(0,0,0,0.7);">
+                <strong>Last Scan:</strong> {$servers.infos.lastScan|date:"%Y-%m-%d"} | 
+                <strong>Servers online:</strong> {$servers.infos.serversOnline}
+                <strong>Servers:</strong> {$servers.infos.maxServers} | 
+                <strong>Players online:</strong> {$servers.infos.actualPlayers}
+                <strong>Max. Players:</strong> {$servers.infos.maxPlayers}
+            </h3>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -30,7 +37,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {foreach from=$servers item="info"}
+                {foreach from=$servers.servers item="info"}
                     {foreach from=$info item="server" key="name"}
                         {if $server['gq_hostname'] != ""}
                             <tr style="border-color:red;">
