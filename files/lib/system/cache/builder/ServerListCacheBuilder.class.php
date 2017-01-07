@@ -24,12 +24,32 @@ class ServerListCacheBuilder extends AbstractCacheBuilder
      */
     protected function rebuild(array $parameters) {
         $servers = $this->getActiveServers();
+        $max = 0;
+        $actual = 0;
+        $online = 0;
         foreach ($servers as $key => $server) {
             $server = (object) $server;
             $serverlist = new ServerList($server->serverID);
             $servers[$key] = $serverlist->getServerInfo();
+            $max += $server['gq_maxplayers'];
+            $actual += $server['gq_numplayers'];
+            if ($server['gq_hostname'] != "")
+                $online += 1;
         }
-        return $servers;
+        
+        $infos = array(
+            "maxPlayers" => $max,
+            "actualPlayers" => $actual,
+            "maxServers" => sizeof($servers),
+            "serversOnline => $online,
+            "lastScan" => time();
+        );
+        
+        $result = array(
+            "infos" => $infos,
+            "servers" => $servers
+        );
+        return $result;
     }
 
     /**
