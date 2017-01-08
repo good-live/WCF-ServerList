@@ -5,8 +5,8 @@
         <packagename languagecode="de"><![CDATA[Server Liste]]></packagename>
         <packagedescription><![CDATA[This plugin adds the possibility to list several servers on a page.]]></packagedescription>
         <packagedescription languagecode="de"><![CDATA[Dieses Plugin fügt ein Server Liste hinzu]]></packagedescription>
-        <version>0.0.1</version>
-        <date>2016-06-11</date>
+        <version>0.0.2</version>
+        <date>2017-01-08</date>
     </packageinformation>
 
 
@@ -20,6 +20,16 @@
         <instruction type="file">files.tar</instruction>
         <instruction type="template">templates.tar</instruction>
         <instruction type="sql">install.sql</instruction>
+        <instruction type="pageMenu">pagemenu.xml</instruction>
+        <instruction type="acpMenu">acpMenu.xml</instruction>
+        <instruction type="userGroupOption">userGroupOption.xml</instruction>
+        <instruction type="language">language/*.xml</instruction>
+        <instruction type="option">options.xml</instruction>
+    </instructions>
+    <instructions type="update">
+        <instruction type="acpTemplate">acpTemplates.tar</instruction>
+        <instruction type="file">files.tar</instruction>
+        <instruction type="template">templates.tar</instruction>
         <instruction type="pageMenu">pagemenu.xml</instruction>
         <instruction type="acpMenu">acpMenu.xml</instruction>
         <instruction type="userGroupOption">userGroupOption.xml</instruction>
