@@ -12,17 +12,22 @@
 </header>
 
 {include file="userNotice"}
+<br>
+<div>
+	<center>
+		<h3 class="block-title" style="background-color:rgba(0,0,0,0.7);font-size=12px;text-transform:uppercase;display:inline-block;padding: 5px 10px;">
+			<strong>Last Scan:</strong> {$servers.infos.lastScan|date:"d M Y G:i:s"} | 
+			<strong>Servers online:</strong> {$servers.infos.serversOnline}
+			<strong>Servers:</strong> {$servers.infos.maxServers} | 
+			<strong>Players online:</strong> {$servers.infos.actualPlayers}
+			<strong>Max. Players:</strong> {$servers.infos.maxPlayers}
+		</h3>
+	</center>
+</div>
 
 <div class="container marginTop">
     <ul class="containerList serverlist">
-        <div>
-            <h3 class="block-title" style="background-color:rgba(0,0,0,0.7);">
-                <strong>Last Scan:</strong> {$servers.infos.lastScan|date:"%Y-%m-%d"} | 
-                <strong>Servers online:</strong> {$servers.infos.serversOnline}
-                <strong>Servers:</strong> {$servers.infos.maxServers} | 
-                <strong>Players online:</strong> {$servers.infos.actualPlayers}
-                <strong>Max. Players:</strong> {$servers.infos.maxPlayers}
-            </h3>
+		<div>
             <table class="table table-striped">
                 <thead>
                 <tr>
