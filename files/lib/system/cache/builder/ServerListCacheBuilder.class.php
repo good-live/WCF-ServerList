@@ -31,23 +31,26 @@ class ServerListCacheBuilder extends AbstractCacheBuilder
             $server = (object) $server;
             $serverlist = new ServerList($server->serverID);
             $servers[$key] = $serverlist->getServerInfo();
-            $max += $server['gq_maxplayers'];
-            $actual += $server['gq_numplayers'];
-            if ($server['gq_hostname'] != "")
+			$serverinfo = array_values($servers[$key])[0];
+            $max += $serverinfo['gq_maxplayers'];
+            $actual += $serverinfo['gq_numplayers'];
+            if ($serverinfo['gq_hostname'] != "")
                 $online += 1;
         }
-        
+       
+		$time = time();
+		
         $infos = array(
             "maxPlayers" => $max,
             "actualPlayers" => $actual,
             "maxServers" => sizeof($servers),
-            "serversOnline => $online,
-            "lastScan" => time();
+            "serversOnline" => $online,
+            "lastScan" => $time,
         );
         
         $result = array(
             "infos" => $infos,
-            "servers" => $servers
+            "servers" => $servers,
         );
         return $result;
     }
