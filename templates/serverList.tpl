@@ -15,7 +15,7 @@
 <br>
 <div>
 	<center>
-		<h3 class="block-title" style="background-color:rgba(0,0,0,0.7);font-size=12px;text-transform:uppercase;display:inline-block;padding: 5px 10px;">
+		<h3 class="container" style="font-size=12px;text-transform:uppercase;display:inline-block;padding: 5px 10px;">
 			<strong>Last Scan:</strong> {$servers.infos.lastScan|date:"d M Y G:i:s"} | 
 			<strong>Servers online:</strong> {$servers.infos.serversOnline}
 			<strong>Servers:</strong> {$servers.infos.maxServers} | 
