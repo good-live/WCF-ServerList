@@ -14,7 +14,7 @@
     <category name="wcf.acp">
         <item name="wcf.acp.option.category.serverlist"><![CDATA[Server Liste]]></item>
         <item name="wcf.acp.option.category.serverlist.general"><![CDATA[General]]></item>
-        <item name="wcf.acp.option.ts3_refreshrate"><![CDATA[Aktualisierungsrate in Sekunden]]></item>
+        <item name="wcf.acp.option.serverlist_refreshrate"><![CDATA[Aktualisierungsrate in Sekunden]]></item>
         <item name="wcf.acp.menu.link.community.serverlist"><![CDATA[Server]]></item>
         <item name="wcf.acp.menu.link.community.serverlist.list"><![CDATA[Server auflisten]]></item>
         <item name="wcf.acp.menu.link.community.serverlist.add"><![CDATA[Server hinzufügen]]></item>
