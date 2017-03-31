@@ -27,7 +27,7 @@
 
 <div class="container marginTop">
     <ul class="containerList serverlist">
-		<div>
+	<div style="overflow-x:auto;">
             <table class="table table-striped">
                 <thead>
                 <tr>
