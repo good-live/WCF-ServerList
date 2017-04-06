@@ -20,21 +20,35 @@ class ServerList extends DatabaseObject {
      * @return array
      */
     public function getServerInfo(){
-        $GameQ = new GameQ();
-        $GameQ->addFilter("normalize");
-        $GameQ->addServer(array(
-            'type'    => $this->game,
-            'host'    => $this->host . ":" . $this->port,
-            'options' => [
-                'query_port' => $this->queryport,
-            ],
-        ));
+        if($this->game == "discord") {
+            $response = file_get_contents("https://discordapp.com/api/guilds/" . $this->host . "/embed.json");
+            $response = json_decode($response);
+            $results = array(
+                $response['name'] => array(
+                    "gq_hostname" => $response['name'],
+                    "gq_mapname" => "",
+                    "gq_numplayers" => count($response['members']),
+                    "gq_maxplayers" => 0,
+                    "gq_joinlink" => $response['instant_invite'],
+                ),
+            );
+        }else{
+            $GameQ = new GameQ();
+            $GameQ->addFilter("normalize");
+            $GameQ->addServer(array(
+                'type'    => $this->game,
+                'host'    => $this->host . ":" . $this->port,
+                'options' => [
+                    'query_port' => $this->queryport,
+                ],
+            ));
 
-        $results = $GameQ->process();
-        if(!array_key_exists("gq_mapname", $results[$this->host . ":" . $this->port])){
-            $results[$this->host . ":" . $this->port]["gq_mapname"] = "";
+            $results = $GameQ->process();
+            if(!array_key_exists("gq_mapname", $results[$this->host . ":" . $this->port])){
+                $results[$this->host . ":" . $this->port]["gq_mapname"] = "";
+            }
+            $results[$this->host . ":" . $this->port]["oname"] = $this->name;
         }
-        $results[$this->host . ":" . $this->port]["oname"] = $this->name;
         return $results;
     }
 }
