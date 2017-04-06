@@ -4,7 +4,7 @@
         <packagename><![CDATA[Server List]]></packagename>
         <packagename languagecode="de"><![CDATA[Server Liste]]></packagename>
         <packagedescription><![CDATA[This plugin adds the possibility to list several servers on a page.]]></packagedescription>
-        <packagedescription languagecode="de"><![CDATA[Dieses Plugin fügt ein Server Liste hinzu]]></packagedescription>
+        <packagedescription languagecode="de"><![CDATA[Dieses Plugin fügt eine Server Liste hinzu]]></packagedescription>
         <version>0.0.4</version>
         <date>2017-01-08</date>
     </packageinformation>
