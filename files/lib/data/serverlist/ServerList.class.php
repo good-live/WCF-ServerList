@@ -25,6 +25,7 @@ class ServerList extends DatabaseObject {
             $response = json_decode($response);
             $results = array(
                 $response['name'] => array(
+                    "gq_type" => "discord",
                     "gq_hostname" => $response['name'],
                     "gq_mapname" => "",
                     "gq_numplayers" => count($response['members']),
