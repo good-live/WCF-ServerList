@@ -5,7 +5,7 @@
         <packagename languagecode="de"><![CDATA[Server Liste]]></packagename>
         <packagedescription><![CDATA[This plugin adds the possibility to list several servers on a page.]]></packagedescription>
         <packagedescription languagecode="de"><![CDATA[Dieses Plugin fügt eine Server Liste hinzu]]></packagedescription>
-        <version>0.0.5</version>
+        <version>0.0.7</version>
         <date>2017-01-08</date>
     </packageinformation>
 
@@ -26,7 +26,7 @@
         <instruction type="language">language/*.xml</instruction>
         <instruction type="option">options.xml</instruction>
     </instructions>
-    <instructions type="update" fromversion="0.0.3">
+    <instructions type="update" fromversion="0.0.6">
         <instruction type="acpTemplate">acpTemplates.tar</instruction>
         <instruction type="file">files.tar</instruction>
         <instruction type="template">templates.tar</instruction>
