@@ -22,11 +22,11 @@ class ServerList extends DatabaseObject {
     public function getServerInfo(){
         if($this->game == "discord") {
             $response = file_get_contents("https://discordapp.com/api/guilds/" . $this->host . "/embed.json");
-            $response = json_decode($response);
+            $response = json_decode($response, true);
             $results = array(
-                $response['name'] => array(
+                $this->name => array(
                     "gq_type" => "discord",
-                    "gq_hostname" => $response['name'],
+                    "gq_hostname" => $this->name,
                     "gq_mapname" => "",
                     "gq_numplayers" => count($response['members']),
                     "gq_maxplayers" => 0,
@@ -48,6 +48,7 @@ class ServerList extends DatabaseObject {
             if(!array_key_exists("gq_mapname", $results[$this->host . ":" . $this->port])){
                 $results[$this->host . ":" . $this->port]["gq_mapname"] = "";
             }
+
             $results[$this->host . ":" . $this->port]["oname"] = $this->name;
         }
         return $results;

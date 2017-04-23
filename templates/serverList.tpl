@@ -53,7 +53,7 @@
                                 <td id="map" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;">{$server['gq_mapname']}</td>
                                 <td id="players" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;">{$server['gq_numplayers']}/{$server['gq_maxplayers']}<br/><progress style="background-color: #77b300;" value="{$server['gq_numplayers']}" max="{$server['gq_maxplayers']}"></td>
                                 <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}">{$name}</a></td>
-                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}"><img src='{$__wcf->getPath()}images/serverlist/icons/steam.png'/></a></td>
+                                <td id="address" class="loading last" style="vertical-align:middle;text-align:center;background-color:rgba(0,0,0,0.3);color:white;"><a href="{$server['gq_joinlink']}"><img src='{$__wcf->getPath()}images/serverlist/icons/{$server['gq_type']}.png'/></a></td>
                             </tr>
                         {else}
                             <tr style="border-color:red;">
