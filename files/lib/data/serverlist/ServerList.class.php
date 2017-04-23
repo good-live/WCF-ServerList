@@ -24,7 +24,7 @@ class ServerList extends DatabaseObject {
             $response = file_get_contents("https://discordapp.com/api/guilds/" . $this->host . "/embed.json");
             $response = json_decode($response, true);
             $results = array(
-                $this->name => array(
+                "Click to connect" => array(
                     "gq_type" => "discord",
                     "gq_hostname" => $this->name,
                     "gq_mapname" => "",
