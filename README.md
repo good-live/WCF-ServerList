@@ -1,5 +1,9 @@
 # WCF-ServerList
 
+Messy, but it works.
+
+Not supported by me anymore. If you want to support this feel free to copy the code and do so.
+
 This package creates a serverlist for you Community. You can easily add or remove server in your ACP.
 
 # Installation
